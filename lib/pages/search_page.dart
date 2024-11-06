@@ -108,11 +108,12 @@ class _SearchPageState extends State<SearchPage> {
                           fit: BoxFit.contain,
                         ),
                         const SizedBox(height: 20),
-                        const Text(
+                        Text(
                           'No tasks found',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            color: Colors.orange[400],
                           ),
                         ),
                       ],

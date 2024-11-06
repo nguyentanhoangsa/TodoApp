@@ -24,7 +24,14 @@ class _TodoItemState extends State<TodoItem> {
     // print('Build o todo Item');
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
-      color: Colors.yellow,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.orange,
+          width: 2.0,
+        ),
+      ),
       child: Row(
         children: [
           IconButton(
@@ -62,13 +69,16 @@ class _TodoItemState extends State<TodoItem> {
                     widget.task.title,
                     style: widget.task.isCompleted
                         ? const TextStyle(
-                            decoration: TextDecoration.lineThrough)
-                        : null,
+                            decoration: TextDecoration.lineThrough,
+                            color: Colors.orange,
+                            fontSize: 16)
+                        : const TextStyle(color: Colors.orange, fontSize: 16),
                     softWrap: true,
                     overflow: TextOverflow.visible,
                   ),
                   Text(widget.task.timeToDoString,
-                      style: const TextStyle(fontSize: 12, color: Colors.red)),
+                      style:
+                          const TextStyle(fontSize: 12, color: Colors.black)),
                 ],
               ),
             ),
@@ -80,8 +90,8 @@ class _TodoItemState extends State<TodoItem> {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirm Delete'),
-                    content: Text(
-                        'Are you sure to delete ${widget.task.title}?'),
+                    content:
+                        Text('Are you sure to delete "${widget.task.title}"?'),
                     actions: [
                       TextButton(
                         onPressed: () {

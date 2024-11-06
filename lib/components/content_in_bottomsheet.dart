@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/components/task_options_bar.dart';
 import '../database/todo_database.dart';
 import '../models/task.dart';
-import '../services/notification_service.dart';
 
 class ContentInBottomSheet extends StatefulWidget {
   final Task myTask;
@@ -125,8 +124,8 @@ class _ContentInBottomSheetState extends State<ContentInBottomSheet> {
                     }
 
                     if (widget.myTask.id == null) {
-                      print(
-                          'Widge Luc an nut id null: ${widget.myTask.hashCode}');
+                      // print(
+                      //     'Widge Luc an nut id null: ${widget.myTask.hashCode}');
                       widget.myTask.title = _textEditingTaskController.text;
                       Provider.of<TodoDatabase>(context, listen: false)
                           .insertTask(widget.myTask);
@@ -145,8 +144,8 @@ class _ContentInBottomSheetState extends State<ContentInBottomSheet> {
                       // print(
                       //     'Widge Luc an nut id null lan 2: ${widget.myTask.hashCode}');
                     } else {
-                      print(
-                          'Widge Luc an nut co id: ${widget.myTask.hashCode} vs id la ${widget.myTask.id}');
+                      // print(
+                      //     'Widge Luc an nut co id: ${widget.myTask.hashCode} vs id la ${widget.myTask.id}');
                       //if the task.id is not null, update the task
                       widget.myTask.title = _textEditingTaskController.text;
                       Provider.of<TodoDatabase>(context, listen: false)
@@ -159,7 +158,8 @@ class _ContentInBottomSheetState extends State<ContentInBottomSheet> {
                   },
                   icon: const Icon(
                     Icons.arrow_circle_up_rounded,
-                    size: 30,
+                    size: 36,
+                    color: Colors.orange,
                   ))
             ],
           ),
@@ -167,36 +167,66 @@ class _ContentInBottomSheetState extends State<ContentInBottomSheet> {
           Row(
             children: [
               Expanded(
-                child: Text(
-                  dateFormat,
-                  style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.calendar_today,
+                      size: 15,
+                      color: Colors.orange,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      dateFormat,
+                      style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
-                child: Text(
-                  timeTodoFormat,
-                  style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.timer, size: 15, color: Colors.orange),
+                    const SizedBox(width: 5),
+                    Text(
+                      timeTodoFormat,
+                      style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
-                child: Text(
-                  timeReminderFormat,
-                  style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.notifications,
+                        size: 15, color: Colors.orange),
+                    const SizedBox(width: 5),
+                    Text(
+                      timeReminderFormat,
+                      style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
               )
             ],
           ),
           SizedBox(height: 6),
-          Expanded(child: TaskOptionsTab(task: widget.myTask,onUpdateInforTask: updateTaskInfor,)),
+          Expanded(
+              child: TaskOptionsTab(
+            task: widget.myTask,
+            onUpdateInforTask: updateTaskInfor,
+          )),
         ],
       ),
     );

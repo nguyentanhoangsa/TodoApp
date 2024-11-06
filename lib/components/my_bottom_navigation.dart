@@ -30,7 +30,7 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
       ],
       currentIndex: _selectedIndex,
       backgroundColor: Colors.white,
-      selectedItemColor: Colors.amber[600],
+      selectedItemColor: Colors.orange,
       unselectedItemColor: Colors.black,
       selectedFontSize: 12,
       unselectedFontSize: 12,

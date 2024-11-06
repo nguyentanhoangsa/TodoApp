@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:app_settings/app_settings.dart';
+import 'package:provider/provider.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
+import '../database/todo_database.dart';
 import '../models/task.dart';
 
 class NotificationService {
@@ -68,7 +70,6 @@ class NotificationService {
   //Add notification
   Future<void> scheduleNotification({
     required Task task,
-    int? idAfterInsertDB,
   }) async {
     try {
       final bool hasPermission = await checkPermissionStatus();
@@ -109,7 +110,7 @@ class NotificationService {
       }
 
       await _flutterLocalNotificationsPlugin.zonedSchedule(
-        task.id == null ? idAfterInsertDB! : task.id!,
+        task.id!,
         task.title,
         'Task starts in ${reminderMinutes} minutes',
         scheduledDate,
@@ -140,14 +141,19 @@ class NotificationService {
     await _flutterLocalNotificationsPlugin.cancel(id);
   }
 
-// Update existing notification
-  Future<void> updateNotification({
-    required Task task,
-  }) async {
-    // First cancel the existing notification
-    await cancelNotification(task.id!);
+  // Delete all notifications
+  Future<void> cancelAllNotifications() async {
+    await _flutterLocalNotificationsPlugin.cancelAll();
+  }
 
-    // Then schedule the new one
-    await scheduleNotification(task: task);
+  //set notification for all tasks
+  Future<void> setNotificationForAll(var currentTasks) async {
+    List<Task> items = List.from(currentTasks);
+    for (var task in items) {
+      if (task.timeToDo != null && task.timeReminder != null) {
+        await NotificationService().scheduleNotification(task: task);
+      }
+    }
+    
   }
 }

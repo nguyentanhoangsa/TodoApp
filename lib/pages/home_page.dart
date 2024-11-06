@@ -94,6 +94,10 @@ class _HomePageState extends State<HomePage> {
         Provider.of<TodoDatabase>(context, listen: true).currentTasks;
     getFilteredTasks();
     getDisplayTasks();
+    //Cancel all notification
+    NotificationService().cancelAllNotifications();
+    //Schedule all notification for if user set before, but turn off notification, it will delete and set from start.
+    NotificationService().setNotificationForAll(currentTasks);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 5),
       child: Column(
@@ -182,11 +186,12 @@ class _HomePageState extends State<HomePage> {
                           fit: BoxFit.contain,
                         ),
                         const SizedBox(height: 20),
-                        const Text(
+                        Text(
                           'You have no tasks',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            color: Colors.orange[400],
                           ),
                         ),
                       ],

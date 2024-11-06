@@ -55,6 +55,7 @@ class TodoDatabase extends ChangeNotifier {
             );
 
     currentTasks.clear();
+    //print("Current tasks: change");
     currentTasks = taskMaps.map((taskMap) => Task.fromMap(taskMap)).toList();
     // print('*************************************************************');
     // Print each task's details

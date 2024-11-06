@@ -344,7 +344,7 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          isTimeToDo ? 'Select Time To Do' : 'Reminder before time todo: ',
+          isTimeToDo ? 'Select Time To Do' : 'Reminder before: ',
           style: const TextStyle(fontSize: 18),
         ),
         const SizedBox(height: 20),
@@ -359,7 +359,7 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
                   width: 70,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.orange[300],
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -410,7 +410,7 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
                   width: 70,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.orange[300],
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -457,6 +457,10 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
         const SizedBox(height: 15),
         //Reset button
         ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange[300],
+            foregroundColor: Colors.white,
+          ),
           onPressed: () {
             setState(() {
               if (isTimeToDo) {
@@ -483,17 +487,14 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
           onTap: (index) => FocusScope.of(context).unfocus(),
           tabs: const [
             Tab(
-              icon: Icon(Icons.calendar_today, size: 15),
               text: 'Calendar',
               height: 40,
             ),
             Tab(
-              icon: Icon(Icons.timer, size: 15),
               text: 'Timer',
               height: 40,
             ),
             Tab(
-              icon: Icon(Icons.notifications, size: 15),
               text: 'Reminder',
               height: 40,
             ),
@@ -506,11 +507,9 @@ class _TaskOptionsTabState extends State<TaskOptionsTab>
               // Calendar Tab Content
               Theme(
                 data: Theme.of(context).copyWith(
-                  colorScheme: ColorScheme.light(
-                    primary: const Color.fromARGB(255, 13, 219, 9)!,
+                  colorScheme: const ColorScheme.light(
+                    primary: Colors.orange,
                     onPrimary: Colors.white,
-                    surface: const Color.fromARGB(255, 222, 155, 22),
-                    onSurface: Colors.black,
                   ),
                 ),
                 child: _calendarDatePicker!,

@@ -36,17 +36,17 @@ class Task {
     return 'Date: $dateStr$timeStr$reminderStr';
   }
   String getFormatDate(){
-    return 'Date: ${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
+    return '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
   }
   String getFormatTimeTodo(){
     return timeToDo != null
-        ? 'Time todo: ${timeToDo!.hour.toString().padLeft(2, '0')}:${timeToDo!.minute.toString().padLeft(2, '0')}'
-        : 'Time todo:';
+        ? '${timeToDo!.hour.toString().padLeft(2, '0')}:${timeToDo!.minute.toString().padLeft(2, '0')}'
+        : '';
   }
   String getFormatTimeReminder(){
     return timeReminder != null
-        ? 'Reminder before: ${timeReminder!.hour.toString().padLeft(2, '0')}:${timeReminder!.minute.toString().padLeft(2, '0')}'
-        : 'Reminder before:';
+        ? '-${timeReminder!.hour.toString().padLeft(2, '0')}:${timeReminder!.minute.toString().padLeft(2, '0')}'
+        : '';
   }
 
   // Convert TimeOfDay to minutes - make it static

@@ -70,24 +70,19 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(pageNames[currentIndex]),
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.orange,
         ),
         body: pages[currentIndex],
         floatingActionButton: FloatingActionButton(
+          shape: const CircleBorder(),
+          backgroundColor: Colors.orange,
+          foregroundColor: Colors.white,
           onPressed: () {
             showModalBottomSheet<void>(
               isScrollControlled: true,
               context: context,
               builder: (BuildContext context) {
-                // var newTask = Task(
-                //   id: null,
-                //   title: "",
-                //   date: DateTime(
-                //     DateTime.now().year,
-                //     DateTime.now().month,
-                //     DateTime.now().day,
-                //   ),
-                //   isCompleted: false,
-                // );
                 print(
                     '-----------------Ok main build lai trong bottomsheet----');
                 print('newTask co hashcode la: ${newTask.hashCode}');
