@@ -1,0 +1,10 @@
+const String databaseName = 'todo.db';
+const String tableTodo = 'todo';
+const String columnId = 'id';
+const String columnTitle = 'title';
+const String columnDescription = 'description';
+const String columnDate = 'date';
+const String columnTimeTodo = 'timeTodo';
+const String columnIsCompleted = 'isCompleted';
+const String columnTimeToDo = 'timeTodo';
+const String columnTimeReminder = 'timeReminder';
