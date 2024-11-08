@@ -16,6 +16,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await TodoDatabase.openDB();
   tz.initializeTimeZones();
+  await NotificationService.initialize();
   // await TodoDatabase.deleteTasksBeforeToday();
 
   runApp(
