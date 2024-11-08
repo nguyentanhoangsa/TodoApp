@@ -83,9 +83,9 @@ class _MyAppState extends State<MyApp> {
               isScrollControlled: true,
               context: context,
               builder: (BuildContext context) {
-                print(
-                    '-----------------Ok main build lai trong bottomsheet----');
-                print('newTask co hashcode la: ${newTask.hashCode}');
+                // print(
+                //     '-----------------Ok main build lai trong bottomsheet----');
+                // print('newTask co hashcode la: ${newTask.hashCode}');
                 return ContentInBottomSheet(myTask: newTask);
               },
             );
