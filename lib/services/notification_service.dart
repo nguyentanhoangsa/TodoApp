@@ -27,7 +27,7 @@ class NotificationService {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onDidReceiveNotificationResponse: (details) {
-        print("Notification tapped: ${details.payload}");
+        // print("Notification tapped: ${details.payload}");
       },
     );
   }
@@ -74,13 +74,13 @@ class NotificationService {
     try {
       final bool hasPermission = await checkPermissionStatus();
       if (!hasPermission) {
-        print('Notification permission not granted');
+        // print('Notification permission not granted');
         return;
       }
 
       final bool hasExactAlarmPermission = await requestExactAlarmPermission();
       if (!hasExactAlarmPermission) {
-        print('Exact alarm permission not granted');
+        // print('Exact alarm permission not granted');
         return;
       }
       if (task.timeToDo == null || task.timeReminder == null) {
@@ -105,7 +105,7 @@ class NotificationService {
           tz.TZDateTime.from(notificationTime, tz.local);
 
       if (scheduledDate.isBefore(DateTime.now())) {
-        print('Scheduled time must be in the future');
+        // print('Scheduled time must be in the future');
         return;
       }
 
@@ -129,9 +129,9 @@ class NotificationService {
             UILocalNotificationDateInterpretation.absoluteTime,
       );
 
-      print('Notification scheduled successfully');
+      // print('Notification scheduled successfully');
     } catch (e) {
-      print('Error scheduling notification: $e');
+      // print('Error scheduling notification: $e');
       rethrow;
     }
   }

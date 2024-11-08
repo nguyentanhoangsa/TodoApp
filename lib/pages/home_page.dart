@@ -89,13 +89,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("Build in HomePage");
+    // print("Build in HomePage");
     currentTasks =
         Provider.of<TodoDatabase>(context, listen: true).currentTasks;
     getFilteredTasks();
     getDisplayTasks();
     //Cancel all notification
-    NotificationService().cancelAllNotifications();
+    // NotificationService().cancelAllNotifications();
     //Schedule all notification for if user set before, but turn off notification, it will delete and set from start.
     NotificationService().setNotificationForAll(currentTasks);
     return Padding(
