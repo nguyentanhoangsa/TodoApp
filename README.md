@@ -1,16 +1,15 @@
 # todo_app
 
-A new Flutter project.
+## Một số lưu ý về bài tập cá nhân todo_app:
++ Để thêm task, ấn nút FloatingButton.
++ Để xóa task, ấn icon thùng rác trên mỗi task.
++ Để sửa task, ấn vào chính task trên mỗi task.
++ Để thay đổi trạng thái của task, ấn vào checkbox trên mỗi task. 
+Trạng thái này chỉ thể hiện người dùng đã hoàn thành. Còn nếu muốn xóa thì phải thực hiện như trên.
++ Có sử dụng database đơn giản để lưu lại và hiển thị lại todoItem mà người dùng đã thêm trước đó.
++ timeTodo là thời gian task bắt đầu thực hiện theo người dùng thiết lập.
++ Cho người dùng lựa chọn timeReminder. timeReminder là khoảng thời gian trước khi task bắt đầu.
+Nghĩa là thời gian hiện thông báo (nếu được phép thông báo) là vào lúc (timeTodo - timeReminder).
++ Ứng dụng chỉ thực hiện và test thông báo trên ứng dụng emulator của Android.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Link github: https://github.com/nguyentanhoangsa/TodoApp
